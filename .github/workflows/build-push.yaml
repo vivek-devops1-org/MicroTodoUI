@@ -9,7 +9,7 @@ env:
 
 jobs:
   build-and-push:
-    runs-on: [self-hosted, Windows, X64, label-1]
+    runs-on: self-hosted
     
     permissions:
       id-token: write
