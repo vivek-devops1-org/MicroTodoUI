@@ -9,7 +9,7 @@ env:
 
 jobs:
   build-and-push:
-    runs-on: ToDoRunner
+    runs-on: LAPTOP-GPQ6JPE7
     
     permissions:
       id-token: write
