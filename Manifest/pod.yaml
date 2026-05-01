@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: todo-ui-pod
+  labels:
+    app: todo
+spec:
+  containers:
+    - name: todo-ui-container
+      image: practice30.azurecr.io/microtodoui:v1
+      ports:
+        - containerPort: 80
