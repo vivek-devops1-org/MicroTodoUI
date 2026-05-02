@@ -5,6 +5,7 @@ on:
 
 env:
   IMAGE_NAME: todoui
+  VERSION: v${{ github.run_number }}
   
 jobs:
   build-and-push:
@@ -31,12 +32,12 @@ jobs:
 
       - name: Build Docker image
         run: |
-          docker build -t ${{ env.IMAGE_NAME }}:${{ github.sha }} .
+          docker build -t ${{ env.IMAGE_NAME }}:${{ env.VERSION }} .
 
       - name: Tag Docker image
         run: |
-          docker tag ${{ env.IMAGE_NAME }}:${{ github.sha }} ${{ secrets.ACR_LOGIN_SERVER }}/${{ env.IMAGE_NAME }}:${{ github.sha }}
+          docker tag ${{ env.IMAGE_NAME }}:${{ env.VERSION }} ${{ secrets.ACR_LOGIN_SERVER }}/${{ env.IMAGE_NAME }}:${{ env.VERSION }}
       
       - name: Push Docker image
         run: |
-          docker push ${{ secrets.ACR_LOGIN_SERVER }}/${{ env.IMAGE_NAME }}:${{ github.sha }}
+          docker push ${{ secrets.ACR_LOGIN_SERVER }}/${{ env.IMAGE_NAME }}:${{ env.VERSION }}
