@@ -5,8 +5,7 @@ on:
 
 env:
   IMAGE_NAME: todoui
-  ACR_NAME: ${{ secrets.ACR_NAME }}
-
+  
 jobs:
   build-and-push:
     runs-on: self-hosted
@@ -25,8 +24,7 @@ jobs:
           client-id: ${{ secrets.AZURE_CLIENT_ID }}
           tenant-id: ${{ secrets.AZURE_TENANT_ID }}
           subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
-      - name: Debug ACR_NAME
-        run: echo "ACR_NAME is" ${{ secrets.ACR_NAME }}
+
       - name: Login to ACR
         run: |
           az acr login --name ${{ secrets.ACR_NAME }}
@@ -37,4 +35,4 @@ jobs:
 
       - name: Push Docker image
         run: |
-          docker push $ACR_LOGIN_SERVER/${{ env.IMAGE_NAME }}:${{ github.sha }}
+          docker push ${{ secrets.ACR_LOGIN_SERVER }}/${{ env.IMAGE_NAME }}:${{ github.sha }}
