@@ -5,7 +5,7 @@ on:
 
 env:
   IMAGE_NAME: todoui
-  ACR_LOGIN_SERVER: ${{ secrets.ACR_LOGIN_SERVER }}
+  ACR_NAME: ${{ secrets.ACR_NAME }}
 
 jobs:
   build-and-push:
@@ -28,7 +28,7 @@ jobs:
 
       - name: Login to ACR
         run: |
-          az acr login --name $ACR_LOGIN_SERVER
+          az acr login --name $ACR_NAME
 
       - name: Build Docker image
         run: |
