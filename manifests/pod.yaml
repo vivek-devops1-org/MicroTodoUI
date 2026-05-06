@@ -7,6 +7,6 @@ metadata:
 spec:
   containers:
     - name: todo-ui-container
-      image: practice30.azurecr.io/microtodoui:v1
+      image: practice30.azurecr.io/todoui:v14
       ports:
         - containerPort: 80
