@@ -15,6 +15,6 @@ spec:
     spec:
       containers:
       - name: todoui-container
-        image: practice30.azurecr.io/todoui:v20
+        image: practice30.azurecr.io/todoui:v21
         ports:
         - containerPort: 80
