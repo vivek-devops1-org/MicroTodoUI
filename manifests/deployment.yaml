@@ -15,6 +15,6 @@ spec:
     spec:
       containers:
       - name: todoui-container
-        image: practice30.azurecr.io/addtask:v17
+        image: practice30.azurecr.io/addtask:v18
         ports:
         - containerPort: 80
