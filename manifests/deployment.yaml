@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: todoui-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: todoui
+  template:
+    metadata:
+      name: todo-ui-pod
+      labels:
+        app: todoui
+    spec:
+      containers:
+      - name: todoui-container
+        image: practice30.azurecr.io/todoui:v14
+        ports:
+        - containerPort: 80
