@@ -3,10 +3,10 @@ kind: Service
 metadata:
   name: todoui-service
 spec:
-  type: LoadBalancer
+  type: ClusterIP
   selector:
     app: todoui
   ports:
     - protocol: TCP
-      port: 80
-      targetPort: 80
+      port: 80  # service ka port jis par listen karega
+      targetPort: 80  #container port
